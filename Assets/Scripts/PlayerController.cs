@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidBody;
     [SerializeField]
     private float _jumpForce = 3f;
+    [SerializeField]
+    private float _animationSpeed = 1f;
 
     private bool _isJumping = false;
 
@@ -18,8 +20,6 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
         _rigidBody = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
 
     void Update()
     {
@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            _animator.SetFloat("animationSpeed", _animationSpeed);
             _animator.SetBool("isRunning", false);
         }
 
